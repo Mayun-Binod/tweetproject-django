@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Code With Binod Tweet
+{% endblock title%}
+
+
+{% block content %}
+<h1 class="text-center mt-4">Welcome to Binod Tweet Project</h1>
+<h2>
+    {% if form.instance.pk %}
+    Edit Tweet
+    {% else %}
+    Create Tweet
+    {% endif %}
+</h2>
+<form method="POST" enctype="multipart/form-data" class="form">
+ {% csrf_token %}
+ {{ form.as_p }}
+ <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<a href="{% url 'tweet_list' %}" >Back To Tweet List</a>
+{% endblock content%}

@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Code With Binod tweet
+{% endblock title%}
+
+
+{% block content %}
+<h1 class="text-center mt-4">Are you sure that you want to delete the tweet?</h1>
+<form method="POST">
+    {% csrf_token %}
+    <button class="btn btn danger" type="button">Delete</button>
+    <a href="{% url 'tweet_list' %}" class="btn btn-sucess">Cancel</a>
+</form>
+{% endblock content%}
