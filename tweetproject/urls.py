@@ -16,16 +16,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
 from django.conf import settings
 from django.conf.urls.static import static
+# adding login/account
+from django.contrib.auth.urls import views as auth_views
+
 admin.site.site_header = "Binod Admin"
 admin.site.site_title = "Binod Admin Portal"
 admin.site.index_title = "Welcome to Binod Tweet Portal"
 
+
+
+def home(request):
+    return HttpResponse('<h1>This is not home page go to tweet/ url you can see the home page....</h1>')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',home,name='home'),
     path('tweet/', include('tweet.urls')),  # Assuming you have a 'tweet' app
-    
+    path('accounts/',include('django.contrib.auth.urls')),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 

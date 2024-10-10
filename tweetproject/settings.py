@@ -129,3 +129,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # adding media
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+# adding login
+LOGIN_URL='/accounts/login'
+
+LOGIN_REDIRECT_URL='/tweet/'
+LOGOUT_REDIRECT_URL='/tweet/'
+
